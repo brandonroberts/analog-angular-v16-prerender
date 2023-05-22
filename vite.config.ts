@@ -7,12 +7,16 @@ import analog from '@analogjs/platform';
 export default defineConfig(({ mode }) => ({
   publicDir: 'src/assets',
   build: {
-    target: ['es2020'],
+    target: ['es2020']
   },
   resolve: {
     mainFields: ['module'],
   },
-  plugins: [analog()],
+  plugins: [analog({
+    prerender: {
+      routes: ['/', '/for/me']
+    }
+  })],
   test: {
     globals: true,
     environment: 'jsdom',
